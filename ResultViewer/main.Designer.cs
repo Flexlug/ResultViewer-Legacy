@@ -64,8 +64,12 @@
             // 
             // SetDataButton
             // 
+            this.SetDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SetDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SetDataButton.Location = new System.Drawing.Point(270, 137);
+            this.SetDataButton.MaximumSize = new System.Drawing.Size(160, 30);
+            this.SetDataButton.MinimumSize = new System.Drawing.Size(160, 30);
             this.SetDataButton.Name = "SetDataButton";
             this.SetDataButton.Size = new System.Drawing.Size(160, 30);
             this.SetDataButton.TabIndex = 1;
@@ -75,6 +79,8 @@
             // 
             // ShowDataButton
             // 
+            this.ShowDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ShowDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ShowDataButton.ForeColor = System.Drawing.Color.Black;
             this.ShowDataButton.Location = new System.Drawing.Point(270, 173);
@@ -108,6 +114,8 @@
             // 
             // LoadDataButton
             // 
+            this.LoadDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LoadDataButton.Location = new System.Drawing.Point(270, 209);
             this.LoadDataButton.Name = "LoadDataButton";
             this.LoadDataButton.Size = new System.Drawing.Size(75, 23);
@@ -118,6 +126,8 @@
             // 
             // SaveButton
             // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveButton.Location = new System.Drawing.Point(351, 209);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
@@ -128,6 +138,8 @@
             // 
             // replaceData
             // 
+            this.replaceData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.replaceData.Location = new System.Drawing.Point(436, 137);
             this.replaceData.Name = "replaceData";
             this.replaceData.Size = new System.Drawing.Size(37, 30);
@@ -154,13 +166,13 @@
             this.SettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainViewerSettingsToolStripMenuItem});
             this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
-            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.SettingsToolStripMenuItem.Text = "Настройки";
             // 
             // MainViewerSettingsToolStripMenuItem
             // 
             this.MainViewerSettingsToolStripMenuItem.Name = "MainViewerSettingsToolStripMenuItem";
-            this.MainViewerSettingsToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.MainViewerSettingsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.MainViewerSettingsToolStripMenuItem.Text = "Настройки вывода результатов";
             this.MainViewerSettingsToolStripMenuItem.Click += new System.EventHandler(this.MainViewerSettingsToolStripMenuItem_Click);
             // 
@@ -169,13 +181,13 @@
             this.OthersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CreatorsToolStripMenuItem});
             this.OthersToolStripMenuItem.Name = "OthersToolStripMenuItem";
-            this.OthersToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.OthersToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.OthersToolStripMenuItem.Text = "Прочее";
             // 
             // CreatorsToolStripMenuItem
             // 
             this.CreatorsToolStripMenuItem.Name = "CreatorsToolStripMenuItem";
-            this.CreatorsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.CreatorsToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.CreatorsToolStripMenuItem.Text = "Создатели";
             this.CreatorsToolStripMenuItem.Click += new System.EventHandler(this.CreatorsToolStripMenuItem_Click);
             // 
@@ -183,6 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(680, 277);
@@ -195,7 +208,6 @@
             this.Controls.Add(this.SetDataButton);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
