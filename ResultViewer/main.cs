@@ -273,7 +273,7 @@ namespace ResultViewer
                 StatusUpdate("Загрузка завершена");
 				replaceData.Visible = true;
 				SetDataButton.Text = "Изменить данные";
-
+                ReplaceVisualElements();
             }
             catch (FormatException fe)
             {
@@ -521,7 +521,23 @@ namespace ResultViewer
             }
         }
 
+        private void ReplaceVisualElements()
+        {
+            SetDataButton.Location = new Point(15, 100);
+            replaceData.Location = new Point(181, 100);
+            ShowDataButton.Location = new Point(15, 136);
+            LoadDataButton.Location = new Point(15, 172);
+            SaveButton.Location = new Point(100, 172);
 
+            Dictionary<string, int> contPoints = new Dictionary<string, int>();
+            foreach (string cont in contestList)
+            {
+                contPoints.Add(cont, 0);
+            }
+
+
+            PreviewDataListBox.Visible = true;
+        }
     }
 
 }
