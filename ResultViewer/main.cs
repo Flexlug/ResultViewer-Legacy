@@ -26,12 +26,6 @@ namespace ResultViewer
          */
         public int[][] juryChoise;
 
-        /*  Вызов функции GetJuryAndCompitList необходим для ввода ФИО жюри и конкурсантов
-         *  Для этого создаётся экземпляр диалогового окна, в котором пользователь вводит данные
-         *  Если пользователь ввёл данные и нажал на кнопку ОК, массивы juryList и contestList заполняются и функция возвращает истину. 
-         *  Если пользователь нажал кнопку отмены, функция позвращает ложь, таким образом прерывая процесс 
-         */
-
 
 
         public Color ContBarColor = Color.FromArgb(255, 26, 43, 63);
@@ -76,6 +70,15 @@ namespace ResultViewer
         }
 
 
+
+        /// <summary>
+        /// Вызов функции GetJuryAndCompitList необходим для ввода ФИО жюри и конкурсантов.
+        /// Для этого создаётся экземпляр диалогового окна, в котором пользователь вводит данные.
+        /// Если пользователь ввёл данные и нажал на кнопку ОК, массивы juryList и contestList заполняются и функция возвращает истину.
+        /// Если пользователь нажал кнопку отмены, функция позвращает ложь, таким образом прерывая процесс.
+        /// </summary>
+        /// <param name="newData">Режим изменения данных или введения новых</param>
+        /// <returns>Результат введения пользователем данных. В случае успеха true, иначе false</returns>
         public bool GetJuryAndCompitList(bool newData)
         {
             ContestDataDialog cdd;
@@ -107,35 +110,7 @@ namespace ResultViewer
                 return true;
 
             }
-
-
         }
-
-
-
-
-
-        private void replaceData_Click(object sender, EventArgs e)
-        {
-            modifyWithNewData(true);
-        }
-
-
-
-
-        private void SetDataButton_Click(object sender, EventArgs e)
-        {
-            if ((juryList == null) && (contestList == null))
-            {
-                modifyWithNewData(true);
-            }
-            else
-            {
-                modifyWithNewData(false);
-            }
-        }
-
-
 
 
 
@@ -158,6 +133,8 @@ namespace ResultViewer
                     juryChoise = new int[juryList.Length][];
                     jcd.GetJuryChoise(ref juryChoise);
                     replaceData.Visible = true;
+                    ReplaceVisualElements();
+                    InitPointListbox();
                     SetDataButton.Text = "Изменить данные";
                     StatusUpdate("Запись новых данных завершена");
                 }
@@ -173,6 +150,26 @@ namespace ResultViewer
 
 
 
+        private void replaceData_Click(object sender, EventArgs e)
+        {
+            modifyWithNewData(true);
+        }
+
+
+
+        private void SetDataButton_Click(object sender, EventArgs e)
+        {
+            if ((juryList == null) && (contestList == null))
+            {
+                modifyWithNewData(true);
+            }
+            else
+            {
+                modifyWithNewData(false);
+            }
+        }
+        
+
 
         private string ReadAndCheckIfNotNull(StreamReader file)
         {
@@ -186,8 +183,6 @@ namespace ResultViewer
                 return str;
             }
         }
-
-
 
 
 
@@ -303,6 +298,8 @@ namespace ResultViewer
 
         }
 
+
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if ((juryChoise != null) && (juryList != null) && (contestList != null))
@@ -400,6 +397,9 @@ namespace ResultViewer
                                 MessageBoxIcon.Warning);
             }
         }
+
+
+
         private void LoadDataButton_Click(object sender, EventArgs e)
         {
             string currentDirectory;
@@ -467,6 +467,8 @@ namespace ResultViewer
                     else
                     {
                         ReadFile(file);
+                        ReplaceVisualElements();
+                        InitPointListbox();
                         currentDirectory = null;
                         ofd.Dispose();
                         file.Dispose();
@@ -478,6 +480,8 @@ namespace ResultViewer
                 }
             }
         }
+
+
 
         private void ShowDataButton_Click(object sender, EventArgs e)
         {
@@ -524,11 +528,15 @@ namespace ResultViewer
 
         }
 
+
+
         private void CreatorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Creators cr = new Creators();
             cr.Show();
         }
+
+
 
         private void MainViewerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -543,6 +551,8 @@ namespace ResultViewer
                 StatusUpdate("Натройка отменена");
             }
         }
+
+
 
         private void InitPointListbox()
         {
@@ -580,6 +590,7 @@ namespace ResultViewer
             PreviewDataListBox.Visible = true;
         }
 
+        
 
         private void ReplaceVisualElements()
         {
