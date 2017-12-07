@@ -38,10 +38,8 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.replaceData = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainViewerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OthersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PreviewDataListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
@@ -143,51 +141,35 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SettingsToolStripMenuItem,
-            this.OthersToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.MainViewerSettingsToolStripMenuItem,
+            this.CreatorsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(452, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // SettingsToolStripMenuItem
-            // 
-            this.SettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.MainViewerSettingsToolStripMenuItem});
-            this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
-            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.SettingsToolStripMenuItem.Text = "Главные";
-            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.openToolStripMenuItem.Text = "Открыть";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
             // MainViewerSettingsToolStripMenuItem
             // 
             this.MainViewerSettingsToolStripMenuItem.Name = "MainViewerSettingsToolStripMenuItem";
-            this.MainViewerSettingsToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.MainViewerSettingsToolStripMenuItem.Text = "Настройки вывода результатов";
-            this.MainViewerSettingsToolStripMenuItem.Click += new System.EventHandler(this.MainViewerSettingsToolStripMenuItem_Click);
-            // 
-            // OthersToolStripMenuItem
-            // 
-            this.OthersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CreatorsToolStripMenuItem});
-            this.OthersToolStripMenuItem.Name = "OthersToolStripMenuItem";
-            this.OthersToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.OthersToolStripMenuItem.Text = "Прочее";
+            this.MainViewerSettingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.MainViewerSettingsToolStripMenuItem.Text = "Настройки";
+            this.MainViewerSettingsToolStripMenuItem.Click += new System.EventHandler(this.MainViewerSettingsToolStripMenuItem_Click_1);
             // 
             // CreatorsToolStripMenuItem
             // 
             this.CreatorsToolStripMenuItem.Name = "CreatorsToolStripMenuItem";
-            this.CreatorsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.CreatorsToolStripMenuItem.Text = "Создатели";
-            this.CreatorsToolStripMenuItem.Click += new System.EventHandler(this.CreatorsToolStripMenuItem_Click);
+            this.CreatorsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.CreatorsToolStripMenuItem.Text = "Справка";
+            this.CreatorsToolStripMenuItem.Click += new System.EventHandler(this.CreatorsToolStripMenuItem_Click_1);
             // 
             // PreviewDataListBox
             // 
@@ -241,12 +223,10 @@
 		private System.Windows.Forms.Button SaveButton;
 		private System.Windows.Forms.Button replaceData;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MainViewerSettingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem OthersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem CreatorsToolStripMenuItem;
         private System.Windows.Forms.ListBox PreviewDataListBox;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MainViewerSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CreatorsToolStripMenuItem;
     }
 }
 

@@ -396,43 +396,7 @@ namespace ResultViewer
                                 MessageBoxButtons.OK, 
                                 MessageBoxIcon.Warning);
             }
-        }
-
-
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = Directory.GetCurrentDirectory();
-            ofd.Filter = "Text Files|*.txt";
-
-            StreamReader file = null;
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    file = new StreamReader(ofd.FileName, Encoding.UTF8);
-                    ReadFile(file);
-                    ReplaceVisualElements();
-                    InitPointListbox();
-                    ofd.Dispose();
-                    file.Dispose();
-                }
-                catch (Exception ee)
-                {
-                    MessageBox.Show($"Во время четния/открытия файла возникла ошибка\nПодробности: \n\n{ee.Message}\n{ee.InnerException}", 
-                                    "Ошибка",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                StatusUpdate("Отменено");
-                file = null;
-            }
-        }
+        }        
 
 
 
@@ -566,30 +530,6 @@ namespace ResultViewer
 
 
 
-        private void CreatorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Creators cr = new Creators();
-            cr.Show();
-        }
-
-
-
-        private void MainViewerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVSettings mvs = new MVSettings(this);
-            mvs.ShowDialog();
-            if (mvs.DialogResult == DialogResult.OK)
-            {
-                StatusUpdate("Настройки показа обновлены");
-            }
-            else
-            {
-                StatusUpdate("Натройка отменена");
-            }
-        }
-
-
-
         private void InitPointListbox()
         {
             Dictionary<string, int> contPoints = new Dictionary<string, int>();
@@ -636,6 +576,60 @@ namespace ResultViewer
             LoadDataButton.Location = new Point(15, 172);
             SaveButton.Location = new Point(100, 172);
 
+        }
+
+        private void openToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.InitialDirectory = Directory.GetCurrentDirectory();
+            ofd.Filter = "Text Files|*.txt";
+
+            StreamReader file = null;
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    file = new StreamReader(ofd.FileName, Encoding.UTF8);
+                    ReadFile(file);
+                    ReplaceVisualElements();
+                    InitPointListbox();
+                    ofd.Dispose();
+                    file.Dispose();
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show($"Во время четния/открытия файла возникла ошибка\nПодробности: \n\n{ee.Message}\n{ee.InnerException}",
+                                    "Ошибка",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                StatusUpdate("Отменено");
+                file = null;
+            }
+        }
+
+        private void MainViewerSettingsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            MVSettings mvs = new MVSettings(this);
+            mvs.ShowDialog();
+            if (mvs.DialogResult == DialogResult.OK)
+            {
+                StatusUpdate("Настройки показа обновлены");
+            }
+            else
+            {
+                StatusUpdate("Натройка отменена");
+            }
+        }
+
+        private void CreatorsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Creators cr = new Creators();
+            cr.Show();
         }
     }
 
