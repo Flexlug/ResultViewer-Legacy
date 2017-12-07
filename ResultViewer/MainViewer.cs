@@ -558,7 +558,8 @@ namespace ResultViewer
         {
             if (frame < FrameRate)
             {
-                ReturnToStockFrame();
+                if (PersonColored != -1)
+                    ReturnToStockFrame();
                 foreach (ContestBar cb in ContestBarList)
                 {
                     cb.MoveAlpha(aStep);
