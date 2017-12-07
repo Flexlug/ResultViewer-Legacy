@@ -106,7 +106,7 @@ namespace ResultViewer
                 return;
             }
 
-            if (JuryListbox.Items.Count >= 15)
+            if (JuryListbox.Items.Count >= 30)
             {
                 JuryAddButton.Enabled = false;
                 return;
@@ -136,7 +136,7 @@ namespace ResultViewer
             {
                 JuryRemoveButton.Enabled = false;
             }
-            if ((JuryListbox.Items.Count < 15) && (JuryAddButton.Enabled == false) && (JuryFIOTextbox.Text != ""))
+            if ((JuryListbox.Items.Count < 30) && (JuryAddButton.Enabled == false) && (JuryFIOTextbox.Text != ""))
             {
                 JuryAddButton.Enabled = true;
             }

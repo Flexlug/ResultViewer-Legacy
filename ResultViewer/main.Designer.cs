@@ -42,6 +42,8 @@
             this.MainViewerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OthersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PreviewDataListBox = new System.Windows.Forms.ListBox();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             this.nameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.nameLabel.Location = new System.Drawing.Point(282, 32);
+            this.nameLabel.Location = new System.Drawing.Point(161, 32);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(131, 25);
             this.nameLabel.TabIndex = 0;
@@ -65,7 +67,7 @@
             // SetDataButton
             // 
             this.SetDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SetDataButton.Location = new System.Drawing.Point(270, 137);
+            this.SetDataButton.Location = new System.Drawing.Point(144, 100);
             this.SetDataButton.Name = "SetDataButton";
             this.SetDataButton.Size = new System.Drawing.Size(160, 30);
             this.SetDataButton.TabIndex = 1;
@@ -77,7 +79,7 @@
             // 
             this.ShowDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ShowDataButton.ForeColor = System.Drawing.Color.Black;
-            this.ShowDataButton.Location = new System.Drawing.Point(270, 173);
+            this.ShowDataButton.Location = new System.Drawing.Point(144, 136);
             this.ShowDataButton.Name = "ShowDataButton";
             this.ShowDataButton.Size = new System.Drawing.Size(160, 30);
             this.ShowDataButton.TabIndex = 2;
@@ -90,7 +92,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(142, 57);
+            this.label1.Location = new System.Drawing.Point(12, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(422, 17);
             this.label1.TabIndex = 3;
@@ -100,7 +102,7 @@
             // 
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.StatusLabel.Location = new System.Drawing.Point(12, 255);
+            this.StatusLabel.Location = new System.Drawing.Point(12, 257);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(68, 13);
             this.StatusLabel.TabIndex = 4;
@@ -108,7 +110,7 @@
             // 
             // LoadDataButton
             // 
-            this.LoadDataButton.Location = new System.Drawing.Point(270, 209);
+            this.LoadDataButton.Location = new System.Drawing.Point(144, 172);
             this.LoadDataButton.Name = "LoadDataButton";
             this.LoadDataButton.Size = new System.Drawing.Size(75, 23);
             this.LoadDataButton.TabIndex = 6;
@@ -118,7 +120,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(351, 209);
+            this.SaveButton.Location = new System.Drawing.Point(229, 172);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 7;
@@ -128,7 +130,7 @@
             // 
             // replaceData
             // 
-            this.replaceData.Location = new System.Drawing.Point(436, 137);
+            this.replaceData.Location = new System.Drawing.Point(310, 100);
             this.replaceData.Name = "replaceData";
             this.replaceData.Size = new System.Drawing.Size(37, 30);
             this.replaceData.TabIndex = 8;
@@ -145,13 +147,14 @@
             this.OthersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(680, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(452, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // SettingsToolStripMenuItem
             // 
             this.SettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
             this.MainViewerSettingsToolStripMenuItem});
             this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
             this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
@@ -179,13 +182,30 @@
             this.CreatorsToolStripMenuItem.Text = "Создатели";
             this.CreatorsToolStripMenuItem.Click += new System.EventHandler(this.CreatorsToolStripMenuItem_Click);
             // 
+            // PreviewDataListBox
+            // 
+            this.PreviewDataListBox.FormattingEnabled = true;
+            this.PreviewDataListBox.Location = new System.Drawing.Point(224, 94);
+            this.PreviewDataListBox.Name = "PreviewDataListBox";
+            this.PreviewDataListBox.Size = new System.Drawing.Size(216, 173);
+            this.PreviewDataListBox.TabIndex = 10;
+            this.PreviewDataListBox.Visible = false;
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(680, 277);
+            this.ClientSize = new System.Drawing.Size(452, 279);
+            this.Controls.Add(this.PreviewDataListBox);
             this.Controls.Add(this.replaceData);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.LoadDataButton);
@@ -197,6 +217,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "main";
@@ -224,6 +245,8 @@
         private System.Windows.Forms.ToolStripMenuItem MainViewerSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OthersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CreatorsToolStripMenuItem;
+        private System.Windows.Forms.ListBox PreviewDataListBox;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
     }
 }
 
