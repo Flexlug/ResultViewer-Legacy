@@ -534,9 +534,33 @@ namespace ResultViewer
             {
                 contPoints.Add(cont, 0);
             }
+            int earnedPoints = 0;
+            for (int i = 0; i < juryList.Length; i++)
+            {
+                for (int ii = 0; ii < 10; ii++)
+                {
+                    if (ii < 9)
+                        earnedPoints = ii + 1;
+                    if (ii == 9)
+                        earnedPoints = 10;
+                    if (ii == 10)
+                        earnedPoints = 12;
 
+                    contPoints[contestList[juryChoise[i][ii]]] += earnedPoints;
+                }
+            }
+
+            contPoints.Remove("...");
+            contPoints = contPoints.OrderBy(pair => pair.Value)
+                                   .Reverse()
+                                   .ToDictionary(pair => pair.Key, pair => pair.Value);
 
             PreviewDataListBox.Visible = true;
+            foreach(KeyValuePair<string, int> contest in contPoints)
+            {
+                PreviewDataListBox.Items.Add($"{contest.Value}    {contest.Key}");
+            }
+            PreviewDataListBox.Refresh();
         }
     }
 
