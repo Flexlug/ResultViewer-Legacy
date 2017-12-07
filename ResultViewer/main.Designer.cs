@@ -43,6 +43,7 @@
             this.OthersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PreviewDataListBox = new System.Windows.Forms.ListBox();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,6 +154,7 @@
             // SettingsToolStripMenuItem
             // 
             this.SettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
             this.MainViewerSettingsToolStripMenuItem});
             this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
             this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
@@ -188,6 +190,13 @@
             this.PreviewDataListBox.Size = new System.Drawing.Size(216, 173);
             this.PreviewDataListBox.TabIndex = 10;
             this.PreviewDataListBox.Visible = false;
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // main
             // 
@@ -237,6 +246,7 @@
         private System.Windows.Forms.ToolStripMenuItem OthersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CreatorsToolStripMenuItem;
         private System.Windows.Forms.ListBox PreviewDataListBox;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
     }
 }
 

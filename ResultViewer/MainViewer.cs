@@ -813,11 +813,13 @@ namespace ResultViewer
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainViewer));
             this.SuspendLayout();
             // 
             // MainViewer
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainViewer";
             this.ResumeLayout(false);
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MVSettings));
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.DefaultButton = new System.Windows.Forms.Button();
@@ -71,10 +72,10 @@
             this.JuryBarWidthNumupdown = new System.Windows.Forms.NumericUpDown();
             this.JuryBarWidthLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.FrameRateLabel = new System.Windows.Forms.Label();
-            this.FrameRateNumupdown = new System.Windows.Forms.NumericUpDown();
-            this.FrameIntervalNumupdown = new System.Windows.Forms.NumericUpDown();
             this.FrameIntervalLabel = new System.Windows.Forms.Label();
+            this.FrameIntervalNumupdown = new System.Windows.Forms.NumericUpDown();
+            this.FrameRateNumupdown = new System.Windows.Forms.NumericUpDown();
+            this.FrameRateLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PointBarIntervalNumupdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointBarHeightNumupdown)).BeginInit();
@@ -95,8 +96,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.JuryBarHeightNumupdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JuryBarWidthNumupdown)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FrameRateNumupdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FrameIntervalNumupdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FrameRateNumupdown)).BeginInit();
             this.SuspendLayout();
             // 
             // OKButton
@@ -663,36 +664,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Скорость анимации:";
             // 
-            // FrameRateLabel
+            // FrameIntervalLabel
             // 
-            this.FrameRateLabel.AutoSize = true;
-            this.FrameRateLabel.Location = new System.Drawing.Point(13, 21);
-            this.FrameRateLabel.Name = "FrameRateLabel";
-            this.FrameRateLabel.Size = new System.Drawing.Size(103, 13);
-            this.FrameRateLabel.TabIndex = 0;
-            this.FrameRateLabel.Text = "Кол-во кадров/сек";
-            // 
-            // FrameRateNumupdown
-            // 
-            this.FrameRateNumupdown.Location = new System.Drawing.Point(122, 19);
-            this.FrameRateNumupdown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.FrameRateNumupdown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.FrameRateNumupdown.Name = "FrameRateNumupdown";
-            this.FrameRateNumupdown.Size = new System.Drawing.Size(73, 20);
-            this.FrameRateNumupdown.TabIndex = 1;
-            this.FrameRateNumupdown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.FrameIntervalLabel.AutoSize = true;
+            this.FrameIntervalLabel.Location = new System.Drawing.Point(230, 21);
+            this.FrameIntervalLabel.Name = "FrameIntervalLabel";
+            this.FrameIntervalLabel.Size = new System.Drawing.Size(135, 13);
+            this.FrameIntervalLabel.TabIndex = 3;
+            this.FrameIntervalLabel.Text = "Частота прорисовки (мс)";
             // 
             // FrameIntervalNumupdown
             // 
@@ -716,14 +695,36 @@
             0,
             0});
             // 
-            // FrameIntervalLabel
+            // FrameRateNumupdown
             // 
-            this.FrameIntervalLabel.AutoSize = true;
-            this.FrameIntervalLabel.Location = new System.Drawing.Point(230, 21);
-            this.FrameIntervalLabel.Name = "FrameIntervalLabel";
-            this.FrameIntervalLabel.Size = new System.Drawing.Size(135, 13);
-            this.FrameIntervalLabel.TabIndex = 3;
-            this.FrameIntervalLabel.Text = "Частота прорисовки (мс)";
+            this.FrameRateNumupdown.Location = new System.Drawing.Point(122, 19);
+            this.FrameRateNumupdown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.FrameRateNumupdown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.FrameRateNumupdown.Name = "FrameRateNumupdown";
+            this.FrameRateNumupdown.Size = new System.Drawing.Size(73, 20);
+            this.FrameRateNumupdown.TabIndex = 1;
+            this.FrameRateNumupdown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // FrameRateLabel
+            // 
+            this.FrameRateLabel.AutoSize = true;
+            this.FrameRateLabel.Location = new System.Drawing.Point(13, 21);
+            this.FrameRateLabel.Name = "FrameRateLabel";
+            this.FrameRateLabel.Size = new System.Drawing.Size(103, 13);
+            this.FrameRateLabel.TabIndex = 0;
+            this.FrameRateLabel.Text = "Кол-во кадров/сек";
             // 
             // MVSettings
             // 
@@ -739,6 +740,7 @@
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CancelButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MVSettings";
@@ -768,8 +770,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.JuryBarWidthNumupdown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FrameRateNumupdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FrameIntervalNumupdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FrameRateNumupdown)).EndInit();
             this.ResumeLayout(false);
 
         }
