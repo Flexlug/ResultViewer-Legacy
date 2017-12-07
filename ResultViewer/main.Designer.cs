@@ -39,11 +39,11 @@
             this.replaceData = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainViewerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OthersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PreviewDataListBox = new System.Windows.Forms.ListBox();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,8 +157,15 @@
             this.openToolStripMenuItem,
             this.MainViewerSettingsToolStripMenuItem});
             this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
-            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.SettingsToolStripMenuItem.Text = "Настройки";
+            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.SettingsToolStripMenuItem.Text = "Главные";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.openToolStripMenuItem.Text = "Открыть";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // MainViewerSettingsToolStripMenuItem
             // 
@@ -190,13 +197,6 @@
             this.PreviewDataListBox.Size = new System.Drawing.Size(216, 173);
             this.PreviewDataListBox.TabIndex = 10;
             this.PreviewDataListBox.Visible = false;
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // main
             // 

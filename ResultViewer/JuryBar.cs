@@ -117,6 +117,7 @@ namespace ResultViewer
                                             FontStyle.Regular,
                                             GraphicsUnit.Pixel);
 
+            SolidBrush fontSolidBrush = new SolidBrush(FontColor);
             SolidBrush juryBarSolidBrush = new SolidBrush(BarColor);
 
             StringFormat contestNameFormat = new StringFormat();
@@ -127,7 +128,7 @@ namespace ResultViewer
 
             g.DrawString(juryBarText,
                          juryNameFont,
-                         Brushes.White,
+                         fontSolidBrush,
                          juryBarBorder,
                          contestNameFormat);
 
