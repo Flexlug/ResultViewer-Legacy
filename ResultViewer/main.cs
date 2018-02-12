@@ -506,13 +506,14 @@ namespace ResultViewer
             //{
             //	MessageBox.Show("Отсутствуют данные", "Ошбика");
             //}
+
             if ((juryChoise != null) && (juryList != null) && (contestList != null))
             {
 
 
                 MainViewer mv = new MainViewer(this);
-                mv.ShowDialog();
                 StatusUpdate("Просмотр запущен");
+                mv.ShowDialog();
 
                 if (mv.DialogResult == DialogResult.OK)
                 {
@@ -532,6 +533,8 @@ namespace ResultViewer
 
         private void InitPointListbox()
         {
+            PreviewDataListBox.Items.Clear();
+
             Dictionary<string, int> contPoints = new Dictionary<string, int>();
             foreach (string cont in contestList)
             {
