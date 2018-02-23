@@ -646,6 +646,15 @@ namespace ResultViewer
             GraphicsTimer.Interval = FrameInterval;
             GraphicsTimer.Tick += new EventHandler(LastRefreshingAnimFrame);
 
+            int deltaR = ContBarColor.R - sndContBarColor.R;
+            int deltaG = ContBarColor.G - sndContBarColor.G;
+            int deltaB = ContBarColor.B - sndContBarColor.B;
+
+            ContestBarList[0].SetColor(sndContBarColor);            
+            ContestBarList[1].SetColor(sndContBarColor);
+            ContestBarList[1].MoveColor(0, deltaR / 3, deltaG / 3, deltaB / 3);
+            ContestBarList[2].SetColor(sndContBarColor);
+            ContestBarList[2].MoveColor(0, deltaR / 3 * 2, deltaG / 3 * 2, deltaB / 3 * 2);
 
             GraphicsTimer.Start();
         }

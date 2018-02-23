@@ -78,6 +78,7 @@
       <DependentUpon>ContestDataDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="DrawPointBarEventArgs.cs" />
+    <Compile Include="PlaceBar.cs" />
     <Compile Include="PointBar.cs" />
     <Compile Include="Creators.cs">
       <SubType>Form</SubType>
