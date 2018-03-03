@@ -629,7 +629,7 @@ namespace ResultViewer
         //*******************LAST REFRESHING ANIM**************//
         //*****************************************************//
 
-
+        
 
         private void InitLastRefreshingAnim()
         {
@@ -650,11 +650,17 @@ namespace ResultViewer
             int deltaG = ContBarColor.G - sndContBarColor.G;
             int deltaB = ContBarColor.B - sndContBarColor.B;
 
-            ContestBarList[0].SetColor(sndContBarColor);            
-            ContestBarList[1].SetColor(sndContBarColor);
-            ContestBarList[1].MoveColor(0, deltaR / 3, deltaG / 3, deltaB / 3);
-            ContestBarList[2].SetColor(sndContBarColor);
-            ContestBarList[2].MoveColor(0, deltaR / 3 * 2, deltaG / 3 * 2, deltaB / 3 * 2);
+            ContestBarList[0].SetColor(sndContBarColor);
+            if (ContestBarList.Count > 1)
+            {
+                ContestBarList[1].SetColor(sndContBarColor);
+                ContestBarList[1].MoveColor(0, deltaR / 3, deltaG / 3, deltaB / 3);
+            }
+            if (ContestBarList.Count > 2)
+            {
+                ContestBarList[2].SetColor(sndContBarColor);
+                ContestBarList[2].MoveColor(0, deltaR / 3 * 2, deltaG / 3 * 2, deltaB / 3 * 2);
+            }
 
             GraphicsTimer.Start();
         }

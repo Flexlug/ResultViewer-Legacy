@@ -667,11 +667,11 @@
             // FrameIntervalLabel
             // 
             this.FrameIntervalLabel.AutoSize = true;
-            this.FrameIntervalLabel.Location = new System.Drawing.Point(230, 21);
+            this.FrameIntervalLabel.Location = new System.Drawing.Point(269, 21);
             this.FrameIntervalLabel.Name = "FrameIntervalLabel";
-            this.FrameIntervalLabel.Size = new System.Drawing.Size(135, 13);
+            this.FrameIntervalLabel.Size = new System.Drawing.Size(96, 13);
             this.FrameIntervalLabel.TabIndex = 3;
-            this.FrameIntervalLabel.Text = "Частота прорисовки (мс)";
+            this.FrameIntervalLabel.Text = "Время кадра (мс)";
             // 
             // FrameIntervalNumupdown
             // 

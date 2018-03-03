@@ -49,35 +49,48 @@ namespace ResultViewer
 			}
 		}
 
+        public void initComboBoxes(string [] juryList, string[] contestList)
+        {
+            JuryComboBox.Items.AddRange(juryList);
+            JuryComboBox.SelectedIndex = 0;
+            onePointComboBox.Items.AddRange(contestList);
+            onePointComboBox.SelectedIndex = 0;
+            twoPointsComboBox.Items.AddRange(contestList);
+            twoPointsComboBox.SelectedIndex = 0;
+            threePointsComboBox.Items.AddRange(contestList);
+            threePointsComboBox.SelectedIndex = 0;
+            fourPointsComboBox.Items.AddRange(contestList);
+            fourPointsComboBox.SelectedIndex = 0;
+            fivePointsComboBox.Items.AddRange(contestList);
+            fivePointsComboBox.SelectedIndex = 0;
+            sixPointsComboBox.Items.AddRange(contestList);
+            sixPointsComboBox.SelectedIndex = 0;
+            sevenPointsComboBox.Items.AddRange(contestList);
+            sevenPointsComboBox.SelectedIndex = 0;
+            eightPointsComboBox.Items.AddRange(contestList);
+            eightPointsComboBox.SelectedIndex = 0;
+            tenPointsComboBox.Items.AddRange(contestList);
+            tenPointsComboBox.SelectedIndex = 0;
+            twelvePointsComboBox.Items.AddRange(contestList);
+            twelvePointsComboBox.SelectedIndex = 0;
+        }
+
 		public JuryChoiseDialog(string[] juryList, string[] contestList)
 		{
 			InitializeComponent();
 			juryChoise = new int[juryList.Length][];
-			initJuryChoise(juryList.Length); 
-			JuryComboBox.Items.AddRange(juryList);
-			JuryComboBox.SelectedIndex = 0;
-			onePointComboBox.Items.AddRange(contestList);
-			onePointComboBox.SelectedIndex = 0;
-			twoPointsComboBox.Items.AddRange(contestList);
-			twoPointsComboBox.SelectedIndex = 0;
-			threePointsComboBox.Items.AddRange(contestList);
-			threePointsComboBox.SelectedIndex = 0;
-			fourPointsComboBox.Items.AddRange(contestList);
-			fourPointsComboBox.SelectedIndex = 0;
-			fivePointsComboBox.Items.AddRange(contestList);
-			fivePointsComboBox.SelectedIndex = 0;
-			sixPointsComboBox.Items.AddRange(contestList);
-			sixPointsComboBox.SelectedIndex = 0;
-			sevenPointsComboBox.Items.AddRange(contestList);
-			sevenPointsComboBox.SelectedIndex = 0;
-			eightPointsComboBox.Items.AddRange(contestList);
-			eightPointsComboBox.SelectedIndex = 0;
-			tenPointsComboBox.Items.AddRange(contestList);
-			tenPointsComboBox.SelectedIndex = 0;
-			twelvePointsComboBox.Items.AddRange(contestList);
-			twelvePointsComboBox.SelectedIndex = 0;
-
+			initJuryChoise(juryList.Length);
+            initComboBoxes(juryList, contestList);
 		} 
+
+        public JuryChoiseDialog(string[] juryList, string[] contestList, int[][] juryChoise)
+        {
+            InitializeComponent();
+            this.juryChoise = juryChoise;
+            initComboBoxes(juryList, contestList);
+            JuryComboBox.SelectedIndex = 0;
+            JuryComboBox_SelectionChangeCommitted(new ComboBox(), new EventArgs());
+        }
 
 		private void onePointComboBox_SelectionChangeCommitted(object sender, EventArgs e)
 		{

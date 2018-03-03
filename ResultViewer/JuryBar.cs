@@ -24,7 +24,7 @@ namespace ResultViewer
         string JuryName; //name of the contest
 
         #endregion
-
+                
         #region Overloaded Contructors
 
         public JuryBar(Point location, string JuryName, int FontSize, int BarWidth, int BarHeight, Color BarColor)

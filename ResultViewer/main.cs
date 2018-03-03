@@ -26,6 +26,9 @@ namespace ResultViewer
          */
         public int[][] juryChoise;
 
+        public string[] tempJuryList;
+        public string[] tempContestList;
+        public int[][] tempJuryChoise;
 
 
         public Color ContBarColor = Color.FromArgb(255, 26, 43, 63);
@@ -102,50 +105,146 @@ namespace ResultViewer
             }
             else
             {
-                juryList = new string[cdd.GetJuryCount()];
-                contestList = new string[cdd.GetContestCount() + 1];
-                cdd.GetJuryList(ref juryList);
-                cdd.GetContestList(ref contestList);
-                cdd.Dispose();
-                return true;
-
-            }
-        }
-
-
-
-        private void modifyWithNewData(bool newData)
-        {
-            if (!GetJuryAndCompitList(newData))
-            {
-                StatusUpdate("Отменено");
-            }
-            else
-            {
-                Array.Sort(juryList);
-                Array.Sort(contestList);
-                contestList[0] = "...";
-                JuryChoiseDialog jcd = new JuryChoiseDialog(juryList, contestList);
-                jcd.ShowDialog();
-
-                if (jcd.DialogResult == DialogResult.OK)
+                if (newData)
                 {
-                    juryChoise = new int[juryList.Length][];
-                    jcd.GetJuryChoise(ref juryChoise);
-                    replaceData.Visible = true;
-                    ReplaceVisualElements();
-                    InitPointListbox();
-                    SetDataButton.Text = "Изменить данные";
-                    StatusUpdate("Запись новых данных завершена");
+                    juryList = new string[cdd.GetJuryCount()];
+                    contestList = new string[cdd.GetContestCount() + 1];
+                    cdd.GetJuryList(ref juryList);
+                    cdd.GetContestList(ref contestList);
+                    cdd.Dispose();
+                    return true;
                 }
                 else
                 {
+                    tempJuryList = new string[cdd.GetJuryCount()];
+                    tempContestList = new string[cdd.GetContestCount() + 1];
+                    cdd.GetJuryList(ref tempJuryList);
+                    cdd.GetContestList(ref tempContestList);
+                    cdd.Dispose();
+                    return true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks string existance in entered array and returns it's id. If searching fails, returns -1
+        /// </summary>
+        /// <param name="expectedJury">String, expected to find</param>
+        /// <returns></returns>
+        private int CheckExistance(string[] stringArray, string expectedMember)
+        {
+            for (int i = 0; i < stringArray.Length; i++)
+                if (stringArray[i] == expectedMember)
+                    return i;
+            return -1;
+        }
+
+        private void TranslateJuryChoise(ref int[][] oldJuryChoise, 
+                                         ref int[][] newJuryChoise, 
+                                         ref string[] oldContestList, 
+                                         ref string[] newContestList, 
+                                         ref string[] oldJuryList,
+                                         ref string[] newJuryList)
+        {
+            // Init new JuryChoise
+            tempJuryChoise = new int[newJuryList.Length][];
+            for (int i = 0; i < newJuryList.Length; i++)
+                tempJuryChoise[i] = new int[10];
+
+
+            int survivedJuryId;
+            int survivedContestId;
+
+            for (int juryId = 0; juryId < oldJuryList.Length; juryId++)
+            {
+                //Check, if this jury is still in new list
+                if ((survivedJuryId = CheckExistance(newJuryList, oldJuryList[juryId])) != -1)
+                {
+                    for (int numOfPoint = 0; numOfPoint < 10; numOfPoint++)
+                    {
+                        //Check, if current contest is still in new list
+                        if ((survivedContestId = CheckExistance(tempContestList, contestList[oldJuryChoise[survivedJuryId][numOfPoint]])) != -1)
+                        {
+                            newJuryChoise[juryId][numOfPoint] = survivedContestId;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void AddEmptyField(ref string[] list)
+        {
+            list[0] = "...";
+        }
+
+        private void modifyWithNewData(bool newData)
+        {
+            if (newData)
+            {
+                if (!GetJuryAndCompitList(newData))
+                {
                     StatusUpdate("Отменено");
                 }
+                else
+                {
+                    Array.Sort(juryList);
+                    Array.Sort(contestList);
+                    AddEmptyField(ref contestList);
+                    JuryChoiseDialog jcd = new JuryChoiseDialog(juryList, contestList);
+                    jcd.ShowDialog();
 
-
+                    if (jcd.DialogResult == DialogResult.OK)
+                    {
+                        juryChoise = new int[juryList.Length][];
+                        jcd.GetJuryChoise(ref juryChoise);
+                        replaceData.Visible = true;
+                        ReplaceVisualElements();
+                        InitPointListbox();
+                        SetDataButton.Text = "Изменить данные";
+                        StatusUpdate("Запись новых данных завершена");
+                    }
+                    else
+                    {
+                        StatusUpdate("Отменено");
+                    }
+                }
             }
-
+            else
+            {
+                if (!GetJuryAndCompitList(newData = false))
+                {
+                    StatusUpdate("Отменено");
+                }
+                else
+                {
+                    Array.Sort(tempJuryList);
+                    Array.Sort(tempContestList);
+                    TranslateJuryChoise(ref juryChoise, 
+                                        ref tempJuryChoise,
+                                        ref contestList,
+                                        ref tempContestList,
+                                        ref juryList,
+                                        ref tempJuryList);
+                    AddEmptyField(ref tempContestList);
+                    JuryChoiseDialog jcd = new JuryChoiseDialog(tempJuryList, tempContestList, tempJuryChoise);
+                    jcd.ShowDialog();
+                    
+                    if (jcd.DialogResult == DialogResult.OK)
+                    {
+                        jcd.GetJuryChoise(ref juryChoise);
+                        contestList = new string[tempContestList.Length];
+                        Array.Copy(tempContestList, contestList, tempContestList.Length);
+                        juryList = new string[tempJuryList.Length];
+                        Array.Copy(tempJuryList, juryList, tempJuryList.Length);
+                        InitPointListbox();
+                        StatusUpdate("Запись новых данных завершена");
+                    }
+                    else
+                    {
+                        StatusUpdate("Отменено");
+                    }
+                }
+            }
         }
 
 
