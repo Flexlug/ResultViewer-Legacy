@@ -697,7 +697,7 @@
             // 
             // FrameRateNumupdown
             // 
-            this.FrameRateNumupdown.Location = new System.Drawing.Point(122, 19);
+            this.FrameRateNumupdown.Location = new System.Drawing.Point(133, 19);
             this.FrameRateNumupdown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -722,9 +722,9 @@
             this.FrameRateLabel.AutoSize = true;
             this.FrameRateLabel.Location = new System.Drawing.Point(13, 21);
             this.FrameRateLabel.Name = "FrameRateLabel";
-            this.FrameRateLabel.Size = new System.Drawing.Size(103, 13);
+            this.FrameRateLabel.Size = new System.Drawing.Size(114, 13);
             this.FrameRateLabel.TabIndex = 0;
-            this.FrameRateLabel.Text = "Кол-во кадров/сек";
+            this.FrameRateLabel.Text = "Кол-во кадров/аним.";
             // 
             // MVSettings
             // 

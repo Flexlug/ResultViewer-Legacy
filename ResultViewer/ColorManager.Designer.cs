@@ -66,7 +66,7 @@
             this.GreenTrackBar.Value = 1;
             // 
             // BlueTrackBar
-            // 
+            //             
             this.BlueTrackBar.LargeChange = 255;
             this.BlueTrackBar.Location = new System.Drawing.Point(53, 114);
             this.BlueTrackBar.Maximum = 255;
