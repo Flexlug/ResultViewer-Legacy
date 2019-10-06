@@ -1,4 +1,19 @@
-﻿using System;
+﻿// Copyright 2019 Flexlug
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -629,7 +644,7 @@ namespace ResultViewer
         //*******************LAST REFRESHING ANIM**************//
         //*****************************************************//
 
-
+        
 
         private void InitLastRefreshingAnim()
         {
@@ -646,6 +661,21 @@ namespace ResultViewer
             GraphicsTimer.Interval = FrameInterval;
             GraphicsTimer.Tick += new EventHandler(LastRefreshingAnimFrame);
 
+            int deltaR = ContBarColor.R - sndContBarColor.R;
+            int deltaG = ContBarColor.G - sndContBarColor.G;
+            int deltaB = ContBarColor.B - sndContBarColor.B;
+
+            ContestBarList[0].SetColor(sndContBarColor);
+            if (ContestBarList.Count > 1)
+            {
+                ContestBarList[1].SetColor(sndContBarColor);
+                ContestBarList[1].MoveColor(0, deltaR / 3, deltaG / 3, deltaB / 3);
+            }
+            if (ContestBarList.Count > 2)
+            {
+                ContestBarList[2].SetColor(sndContBarColor);
+                ContestBarList[2].MoveColor(0, deltaR / 3 * 2, deltaG / 3 * 2, deltaB / 3 * 2);
+            }
 
             GraphicsTimer.Start();
         }

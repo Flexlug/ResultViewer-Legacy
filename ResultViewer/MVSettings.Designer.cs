@@ -667,11 +667,11 @@
             // FrameIntervalLabel
             // 
             this.FrameIntervalLabel.AutoSize = true;
-            this.FrameIntervalLabel.Location = new System.Drawing.Point(230, 21);
+            this.FrameIntervalLabel.Location = new System.Drawing.Point(269, 21);
             this.FrameIntervalLabel.Name = "FrameIntervalLabel";
-            this.FrameIntervalLabel.Size = new System.Drawing.Size(135, 13);
+            this.FrameIntervalLabel.Size = new System.Drawing.Size(96, 13);
             this.FrameIntervalLabel.TabIndex = 3;
-            this.FrameIntervalLabel.Text = "Частота прорисовки (мс)";
+            this.FrameIntervalLabel.Text = "Время кадра (мс)";
             // 
             // FrameIntervalNumupdown
             // 
@@ -697,7 +697,7 @@
             // 
             // FrameRateNumupdown
             // 
-            this.FrameRateNumupdown.Location = new System.Drawing.Point(122, 19);
+            this.FrameRateNumupdown.Location = new System.Drawing.Point(133, 19);
             this.FrameRateNumupdown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -722,9 +722,9 @@
             this.FrameRateLabel.AutoSize = true;
             this.FrameRateLabel.Location = new System.Drawing.Point(13, 21);
             this.FrameRateLabel.Name = "FrameRateLabel";
-            this.FrameRateLabel.Size = new System.Drawing.Size(103, 13);
+            this.FrameRateLabel.Size = new System.Drawing.Size(114, 13);
             this.FrameRateLabel.TabIndex = 0;
-            this.FrameRateLabel.Text = "Кол-во кадров/сек";
+            this.FrameRateLabel.Text = "Кол-во кадров/аним.";
             // 
             // MVSettings
             // 
